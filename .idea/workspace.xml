@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff27797-88e7-4b4f-9901-198063d4aade" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Flexpool_GLM_API_calls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/req_http_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Flexpool_GLM_API_calls.py" afterPath="$PROJECT_DIR$/Flexpool_GLM_API_calls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Flexpool_Revoke_Allocation.py" afterPath="$PROJECT_DIR$/Flexpool_Revoke_Allocation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rynat-script-a10_license.py" afterPath="$PROJECT_DIR$/rynat-script-a10_license.py" />
     </list>
@@ -67,8 +65,8 @@
       <file leaf-file-name="Flexpool_GLM_API_calls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Flexpool_GLM_API_calls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-558">
-              <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="-3849">
+              <caret line="84" column="46" lean-forward="false" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -481,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Flexpool_GLM_API_calls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-558">
-          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="26" />
+        <state relative-caret-position="-3849">
+          <caret line="84" column="46" lean-forward="false" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
           <folding />
         </state>
       </provider>
