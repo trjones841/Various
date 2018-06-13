@@ -5,10 +5,11 @@
 # Date:  JUN2018
 #
 # This script will login into the GLM server (glm.a10networks.com) using the user 
-# credentials and perfrom one of the following actions:
-#   revoke the activation for a given ID(will release bandwidth from the vThunder back to the pool.
-#   revoke the license for a given ID
-# 
+# credentials and perform one of the following actions:
+#   * revoke the activation for a given ID(will release bandwidth from the vThunder back to the pool.
+#   * revoke the license for a given ID
+#   * activate a perpetual license
+#
 # Note: The information required for this script should be completed before this script is
 # run. I would also recommend testing the script with the information completed to verify 
 # functionality as well as ensure you are prepared for an emergency. 
@@ -18,7 +19,7 @@
 #
 
 '''
-Example: vThunder configuration (ACOS v4.1.4-P1.69)
+Example configuration to register a vThunder with a Flexpool (subscription license)(ACOS v4.1.4-P1.69)
 
 vThunder-Active-affinity-def-vMaster[4/1](config:2)#show run glm
 !Section configuration: 94 bytes        
@@ -26,31 +27,18 @@ vThunder-Active-affinity-def-vMaster[4/1](config:2)#show run glm
 glm use-mgmt-port 
 glm enable-requests 
 glm allocate-bandwidth 200 
-glm token vThd10516000 
+glm token vThd10516000
 !
+Run this command to update changes to GLM:
 
-Pulled from source of customers glm activation tab on glm server:
+  glm send license-request
 
-https://glm.a10networks.com/licenses/19727/activations/24397/revoke_activation
- 
- 
-Page source for revoke buttons -
- 
-<a data-toggle="tooltip" data-placement="top" data-confirm="Are You Sure You Wish To Revoke This Activation?" title="" class="btn btn-danger" rel="nofollow" data-method="post" href="/activations/24397/revoke_activation" data-original-title="Revoke Activation"><i class="fa fa-trash-o fa-fw"></i></a>
- 
-<a data-toggle="tooltip" data-placement="top" data-confirm="Are You Sure You Wish To Revoke This Activation?" title="" class="btn btn-danger" rel="nofollow" data-method="post" href="/activations/24393/revoke_activation" data-original-title="Revoke Activation"><i class="fa fa-trash-o fa-fw"></i></a>
- 
 '''
 
 __version__ = 0.1
 __author__ = 'A10 Networks'
 
-import json, argparse, requests, datetime, logging, pprint
-
-# set the default logging format
-logging.basicConfig(format="%(name)s: %(levelname)s: %(message)s")
-
-start = datetime.datetime.now()
+import json, argparse, requests
 
 parser = argparse.ArgumentParser(description='This program will log into the GLM server and revoke the BW for a given vThunder.')
 parser.add_argument('-p', '--password', default='a10', help='User password to access the GLM server (glm.a10networks.com)')
@@ -82,7 +70,6 @@ def glm_login():
     requests.packages.urllib3.disable_warnings()
 
     json_header = {'Content-Type': 'application/json'}
-    # Authenticate to GLM
     values = """
       {
         "user": {
@@ -96,7 +83,6 @@ def glm_login():
         content = r.content
         parsed_json = json.loads(content)
         user_token = parsed_json['user_token']
-
         return user_token
 
     except Exception as e:
